@@ -1,8 +1,7 @@
 # Sir Chief’s Motorshop E-Commerce Website
 
 ## Presented to:
-Assoc. Prof. III, BSCS, MAED, MIT  
-Ma'am Rosemarie Coronejo  
+Assoc. Prof. Ma'am Rosemarie Coronejo BSCS, MAED, MIT 
 In partial fulfillment of the requirements for Database Management Systems 1
 
 ## Submitted by:
