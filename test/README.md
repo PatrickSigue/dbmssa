@@ -1,3 +1,5 @@
+![Sir Chief’s Motorshop Logo](assets/incredbs.png)
+
 # Sir Chief’s Motorshop E-Commerce Website
 
 ## Presented to:
