@@ -1,0 +1,170 @@
+/* General Styles */
+html, body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+    color: white;
+    height: 100%;
+}
+
+body {
+    background: rgba(0, 0, 0, .5);
+    display: flex;
+    flex-direction: column; /* Make sure the body stacks elements vertically */
+}
+
+/* Header */
+header {
+    background: #fff;
+    color: #333;
+    text-align: center;
+    padding: 15px 0;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    margin-left: 35px;
+    margin-right: 35px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    align-items: center;
+}
+
+nav img.logo {
+    width: 220px;
+    height: auto;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
+nav a:hover {
+    color: indianred;
+}
+
+nav .login-icon {
+    width: 30px;
+    height: auto;
+    margin-right: 10px;
+}
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: auto;
+    position: sticky;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    box-sizing: border-box;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+.form-modal {
+    padding: 20px;
+    text-align: center;
+}
+
+.form-toggle button {
+    background-color: #014235;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+.form-toggle button:hover {
+    background-color: #4c9b3c;
+}
+
+#signup-form {
+    display: none;
+}
+
+#login-form input,
+#signup-form input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#login-form button,
+#signup-form button {
+    background-color: #014235;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+#login-form button:hover,
+#signup-form button:hover {
+    background-color: #4c9b3c;
+}
+
+#login-form p,
+#signup-form p {
+    font-size: 14px;
+}
+
+#login-form a,
+#signup-form a {
+    color: #57b846;
+    text-decoration: none;
+}
+
+#login-form a:hover,
+#signup-form a:hover {
+    text-decoration: underline;
+}
