@@ -1,0 +1,249 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+body {
+	min-height: 100vh;
+}
+#nav{
+	color: black;
+	text-decoration: underline;
+}
+a{
+	text-decoration: none;
+}
+a:visited{
+	text-decoration: none;
+	color: white;
+}
+li{
+	list-style: none;
+}
+h1, h2{
+	padding-top: 15px;
+	color: #444;
+}
+h3{
+	color: #999;
+}
+.btn{
+	background: #014235;
+	color: white;
+	padding: 5px 10px;
+	text-align: center;
+}
+.btn:hover{
+	color: #014235;
+	background: white;
+	padding: 3px 8px;
+	border: 2px solid #014235;
+}
+.title{
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	padding: 15px 10px;
+	border-bottom: 2px solid #999;
+}
+table{
+	padding: 10px;
+}
+th, td{
+	text-align: left;
+	padding: 8px;
+}
+.side-menu{
+	position: fixed;
+	background: #014235;
+	width: 20vw;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+.side-menu .brand-name{
+	height: 10vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.side-menu li{
+	font-size: 24px;
+	padding: 10px 40px;
+	color: white;
+	display: flex;      
+	align-items: center;
+}
+.side-menu li a{
+	color: white;
+}
+.side-menu li a:visited{
+	color: white;
+}
+.side-menu li:hover{
+	background: white;
+	color: #014235;
+}
+.side-menu li:hover a:visited{
+	background: white;
+	color: #014235;
+}
+.container{
+	position: absolute;
+	right: 0;
+	width: 80vw;
+	height: 100vh;
+	background: #f1f1f1;
+}
+.container .header{
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	right: 0;
+	width: 80vw;
+	height: 10vh;
+	background: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.container .header .nav{
+	width: 90%;
+	display: flex;
+	align-items: center;
+}
+.container .header .nav .user {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end; /* Align items to the right */
+    align-items: center; /* Center items vertically */
+    margin-left: auto; /* Push the user section to the right */
+}
+.container .content{
+	position: relative;
+	margin-top: 10vh;
+	min-height: 90vh;
+	background: #f1f1f1;
+}
+.container .content .cards{
+	padding: 20px 150px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+.container .content .cards .card{
+	width: 250px;
+	height: 150px;
+	background: white;
+	margin: 20px 10px;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.container .content .content-2{
+	min-height: 40vh;
+	display: ;
+	justify-content: space-around;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	margin: 0; /* Remove any margin */
+    padding: 0; /* Remove any padding */
+}
+.container .content .content-2 .recent-orders{
+	min-height: 35vh;
+	flex: 5;
+	background: white;
+	margin: 0 60px 0 60px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	display: flex;
+	flex-direction: column;
+	max-height: 80%;
+}
+
+.container footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 0px;
+            height: 60px;
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  position: absolute; /* Use absolute positioning */
+  top: 50%; /* Position from the top */
+  left: 60%; /* Position from the left */
+  transform: translate(-50%, -50%); /* Center the modal */
+  background-color: #fefefe;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 40%; /* Could be more or less, depending on screen size */
+  max-height: 80%; /* Maximum height of the modal */
+  overflow-y: auto; /* Enable vertical scrolling if content exceeds max height */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal-header {
+  padding: 2px 16px;
+  color: black;
+}
+/* Modal Body */
+.modal-body {
+  padding: 2px 16px;
+}
+/* Modal Footer */
+.modal-footer {
+  padding: 2px 16px;
+  color: black;
+}
+/* Add Animation */
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
+}
+.table-fixed {
+    width: 800px; /* Set your desired width */
+}
+/* Remove any shadow and set solid borders */
+.table-fixed {
+    border: 1px solid #000; /* Solid border for the table */
+}
+.table-fixed th, .table-fixed td {
+    padding: 10px; /* Optional: for better spacing */
+    text-align: center; /* Optional: align text to the left */
+    border: 1px solid #000; /* Solid border for table cells */
+}

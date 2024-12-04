@@ -1,0 +1,631 @@
+/* General Styles */
+html, body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+    color: white;
+    height: 100%;
+}
+
+body {
+    background: rgba(0, 0, 0, .5);
+    display: flex;
+    flex-direction: column; /* Make sure the body stacks elements vertically */
+}
+
+/* Header */
+header {
+    background: #fff;
+    color: #333;
+    text-align: center;
+    padding: 0px;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    margin-left: 35px;
+    margin-right: 35px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    align-items: center;
+}
+
+nav img.logo {
+    width: 220px;
+    height: auto;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
+nav a:hover {
+    color: indianred;
+}
+
+nav .login-icon {
+    width: 30px;
+    height: auto;
+   }
+
+.flex-container {
+    display: flex; /* Enable flexbox */
+    justify-content: space-between; /* Space between the items */
+    align-items: flex-start; /* Align items to the top */
+    margin: 10px; /* Optional: Add some margin around the container */
+}
+
+/* Container for categories and products */
+.php-container {
+    max-width: 250px; /* Keep the same max-width */
+    background: #014235;
+    margin: 0 10px; /* Adjust margins if needed */
+    padding: 10px;
+    border: 1px solid #111;
+    border-radius: 4px;
+    box-shadow: 0px 4px 5px #8fbc8f;
+    color: white;
+    text-align: right;
+}
+
+/* Product List */
+.php-product-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 20px; /* Adjusted margin to prevent overlap with categories */
+    flex: 1; /* Allow product list to take remaining space */
+    max-height: auto; /* Set a maximum height for the product list */
+    overflow-y: false; /* Change to 'auto' to allow scrolling if needed */
+}
+
+/* Individual Product */
+.php-product {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    width: 250px;
+    text-align: center;
+}
+
+/* Product Image */
+.php-product img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Product Footer */
+.php-product-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: auto;
+}
+
+/* Add to Cart Button */
+.php-add-to-cart-button {
+    display: inline-block;
+    background-color: #014235;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.php-add-to-cart-button:hover {
+    background-color: #016d3f;
+}
+
+/* Specific styling for small screens */
+@media (max-width: 768px) {
+    .php-product-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .php-product {
+        width: 90%;
+        margin: 10px 0;
+    }
+
+    .php-add-to-cart-button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    nav a {
+        font-size: 16px;
+    }
+
+    footer {
+        font-size: 12px;
+    }
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 20px;
+    position: sticky;
+}
+
+        body {
+            font-family: Verdana, sans-serif;
+            font-stretch: extra-expanded;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            color: #333;
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            margin-left: 35px;
+            margin-right: 35px;
+            margin-bottom: 5px;
+            margin-top: 5px;
+            align-items: center;
+        }
+
+        nav img.logo {
+            width: 220px;
+            height: auto;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: black;
+            font-size: 20px;
+        }
+
+        nav a:hover {
+            color: indianred;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            margin-bottom: 10px;
+        }
+
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .product {
+            width: 250px;
+            margin: 10px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .product-footer {
+            margin-top: 10px;
+        }
+
+        .add-to-cart {
+            padding: 10px 20px;
+            background-color: #004d26;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .add-to-cart:hover {
+            background-color: #006b35;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav li {
+                margin: 10px 0;
+            }
+
+            .product {
+                width: 100%;
+                max-width: 300px;
+                margin: 10px auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav a {
+                font-size: 16px;
+            }
+
+            footer {
+                font-size: 12px;
+            }
+        }
+
+.php-link {
+    font-size: 16px;
+    font-weight: 300;
+    text-align: right;
+    position: relative;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 10px;
+    overflow: hidden;
+    width: 90%;
+    margin-left: 5%;
+    cursor: pointer;
+}
+
+.php-link a {
+    text-decoration: none; /* Removes underline */
+    color: inherit;        /* Prevents link color from changing when visited */
+}
+
+.php-link:after {
+    content: '';
+    position: absolute;
+    width: 80%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    bottom: 50%;
+    left: -100%;
+    transition: all 0.5s;
+}
+
+.php-link:hover:after {
+    left: 100%;
+}
+
+.php-link .php-text {
+    text-shadow: 0px -40px 0px rgba(255, 255, 255, 1);
+    transition: all 0.75s;
+    transform: translateY(100%) translateZ(0);
+    transition-delay: all 0.25s;
+}
+
+.php-link:hover .php-text {
+    text-shadow: 0px -40px 0px rgba(255, 255, 255, 0);
+    transform: translateY(0%) translateZ(0) scale(1.1);
+    font-weight: 600;
+}
+
+.php-link a:visited {
+    color: inherit; /* Keeps the color the same when visited */
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    box-sizing: border-box;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+.form-modal {
+    padding: 20px;
+    text-align: center;
+}
+
+.form-toggle button {
+    background-color: #014235;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+.form-toggle button:hover {
+    background-color: #4c9b3c;
+}
+
+#signup-form {
+    display: none;
+}
+
+#login-form input,
+#signup-form input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#login-form button,
+#signup-form button {
+    background-color: #014235;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+#login-form button:hover,
+#signup-form button:hover {
+    background-color: #4c9b3c;
+}
+
+#login-form p,
+#signup-form p {
+    font-size: 14px;
+}
+
+#login-form a,
+#signup-form a {
+    color: #57b846;
+    text-decoration: none;
+}
+
+#login-form a:hover,
+#signup-form a:hover {
+    text-decoration: underline;
+}
+
+/* General styles for the cart modal */
+.cart-modal {
+    display: none; /* Initially hidden */
+    position: fixed; /* Fixed positioning */
+    z-index: 1000; /* To appear on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full-width */
+    height: 100%; /* Full-height */
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+}
+
+.cart-modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    width: 80%;  /* Adjust the width as needed */
+    max-width: 900px;  /* Optional: set a max-width */
+    height: 80vh;  /* Make the modal content take up 80% of the viewport height */
+    overflow-y: auto;  /* Enable vertical scrolling when content overflows */
+    border-radius: 8px;
+}
+
+/* Modal content */
+.cart-modal .modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Adjust width as necessary */
+    max-width: 900px; /* Limit the max width */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative; /* Ensure close button stays in place */
+}
+
+/* Modal header */
+.cart-modal .modal-content h2 {
+    margin-top: 0;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd; /* Optional separator */
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Close button */
+.cart-modal .close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.cart-modal .close:hover,
+.cart-modal .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Table styles */
+.cart-modal table {
+    width: 100%;
+    border-collapse: collapse; /* Ensures borders don't double up */
+    margin-top: 20px;
+}
+
+.cart-modal th, .cart-modal td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd; /* Border for each cell */
+}
+
+.cart-modal th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.cart-modal tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Empty cart message */
+.cart-modal .empty-cart-message {
+    text-align: center;
+    font-size: 16px;
+    color: #888;
+    margin: 20px 0;
+    font-style: italic;
+}
+
+/* Remove button */
+.cart-modal .remove-item {
+    background-color: #f44336; /* Red background */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cart-modal .remove-item:hover {
+    background-color: #e53935; /* Darker red */
+}
+
+/* Total and confirm order styles */
+.cart-modal .total-summary {
+    margin-top: 30px;
+    padding-top: 10px;
+    border-top: 2px solid #ddd; /* Separate visually from the table */
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right; /* Align total sum to the right */
+}
+
+/* Order form */
+.cart-modal #orderForm {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Adds space between inputs */
+}
+
+.cart-modal #orderForm h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.cart-modal #orderForm label {
+    font-weight: bold; /* Makes labels more prominent */
+    margin-bottom: 5px;
+}
+
+.cart-modal #orderForm input[type="text"],
+.cart-modal #orderForm textarea {
+    width: 97%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.cart-modal #orderForm button {
+    background-color: #014235; /* Blue background */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cart-modal #orderForm button:hover {
+    background-color: #0056b3; /* Darker blue */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .cart-modal .modal-content {
+        width: 95%; /* Adjust modal width for smaller screens */
+    }
+
+    .cart-modal table {
+        font-size: 14px; /* Smaller font for smaller screens */
+    }
+}
