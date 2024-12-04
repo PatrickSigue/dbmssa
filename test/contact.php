@@ -384,13 +384,12 @@ if ($conn->connect_error) {
             <li><a href="incredbs.php">SHOP</a></li>
         </ul>
         <!-- Check if the user is logged in -->
-        <ul class="login-nav">
-            <?php if (isset($_SESSION['username'])): ?>
-                <li><a href="profile.php"><?php echo htmlspecialchars($_SESSION['username']); ?></a></li>
-                <li><a href="php/logout.php">LOG OUT</a></li>
-            <?php else: ?>
-                <li><a href="#" id="openLoginBtn"><img src="assets/loginicon.png" class="login-icon" alt="Login Icon">&nbsp;LOG IN</a></li>
-            <?php endif; ?>
+        <?php if (isset($_SESSION['username'])): ?>
+            <li><a href="myacc.php" style="text-transform: uppercase;"><?php echo "HI, " . htmlspecialchars($_SESSION['username']); ?></a></li>
+            <li><a href = "php/logout.php" style = "text-decoration: underline;">LOG OUT</a></li>
+        <?php else: ?>
+            <li><a href="#" id="openLoginBtn"><img src="assets/loginicon.png" class="login-icon" alt="Login Icon">&nbsp;LOG IN</a></li>
+        <?php endif; ?>
         </ul>
     </nav>
 </header>
@@ -433,21 +432,25 @@ if ($conn->connect_error) {
                 </div>
 
                 <div id="login-form">
-                    <!-- Your login form -->
-                    <form action="php/login.php" method="POST"> <!-- Ensure correct action to PHP login handler -->
+                    <!-- Login Form -->
+                    <form action="php/login.php" method="POST">
                         <input type="text" name="username" placeholder="Enter email or username" required />
                         <input type="password" name="password" placeholder="Enter password" required />
                         <input type="hidden" name="redirect_to" value="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']); ?>" />
                         <button type="submit">Login</button>
                     </form>
-
                 </div>
 
                 <div id="signup-form" style="display: none;">
+                    <!-- Sign-Up Form -->
                     <form action="php/registration.php" method="POST">
+                        <input type="text" name="first_name" placeholder="Enter your first name" required />
+                        <input type="text" name="last_name" placeholder="Enter your last name" required />
                         <input type="email" name="email" placeholder="Enter your email" required />
-                        <input type="text" name="username" placeholder="Choose username" required />
+                        <input type="text" name="username" placeholder="Choose a username" required />
                         <input type="password" name="password" placeholder="Create password" required />
+                        <input type="text" name="address" placeholder="Enter your address (optional)" />
+                        <input type="text" name="contact_number" placeholder="Enter your contact number (optional)" />
                         <button type="submit" class="btn signup">Create Account</button>
                         <p>Clicking <strong>create account</strong> means that you agree to our <a href="javascript:void(0)">terms of services</a>.</p>
                         <hr />
@@ -456,6 +459,7 @@ if ($conn->connect_error) {
             </div>
         </div>
     </div>
+
     <footer>
         <p>&copy; 2024 Sir Chief's</p>
     </footer>

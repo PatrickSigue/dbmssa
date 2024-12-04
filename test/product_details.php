@@ -49,6 +49,21 @@ if ($product_id > 0) {
     echo "Invalid product ID.";
     exit;
 }
+
+if (isset($_SESSION['user_id'])) {
+    // Fetch user's contact number and address
+    $user_id = $_SESSION['user_id'];
+    $user_sql = "SELECT contact_number, address FROM users WHERE uid = ?";
+    $stmt = $conn->prepare($user_sql);
+    $stmt->bind_param("i", $user_id);
+    $stmt->execute();
+    $user_result = $stmt->get_result();
+    $user_data = $user_result->fetch_assoc();
+
+    $contact_number = $user_data['contact_number'] ?? ''; // Default to an empty string if null
+    $address = $user_data['address'] ?? ''; // Default to an empty string if null
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -177,9 +192,8 @@ if ($product_id > 0) {
                 <!-- Check if the user is logged in -->
                 <ul class="login-nav">
                     <?php if (isset($_SESSION['username'])): ?>
-                        <li><a href="profile.php"><?php echo '<span style="text-transform: uppercase;">' . htmlspecialchars($_SESSION['username']) . '</span>'; ?>
-</a></li>
-                        <li><a href="php/logout.php">LOG OUT</a></li>
+                        <li><a href="myacc.php" style="text-transform: uppercase;"><?php echo "HI, " . htmlspecialchars($_SESSION['username']); ?></a></li>
+                        <li><a href = "php/logout.php" style = "text-decoration: underline;">LOG OUT</a></li>
                     <?php else: ?>
                         <li><a href="#" id="openLoginBtn"><img src="assets/loginicon.png" class="login-icon" alt="Login Icon">&nbsp;LOG IN</a></li>
                     <?php endif; ?>
@@ -248,21 +262,64 @@ if ($product_id > 0) {
                 </div>
 
                 <div id="login-form">
+                    <!-- Login Form -->
                     <form action="php/login.php" method="POST">
-                        <input type="text" placeholder="Enter Username" id="username" name="username" required />
-                        <input type="password" placeholder="Enter password" id="password" name="password" required />
+                        <input type="text" name="username" placeholder="Enter email or username" required />
+                        <input type="password" name="password" placeholder="Enter password" required />
                         <input type="hidden" name="redirect_to" value="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']); ?>" />
-                        <button type="submit" class="btn login">Login</button>
-                        <p><a href="javascript:void(0)">Forgotten account?</a></p>
-                        <hr />
+                        <button type="submit">Login</button>
                     </form>
                 </div>
 
                 <div id="signup-form" style="display: none;">
+                    <!-- Sign-Up Form -->
                     <form action="php/registration.php" method="POST">
+                        <input type="text" name="first_name" placeholder="Enter your first name" required />
+                        <input type="text" name="last_name" placeholder="Enter your last name" required />
                         <input type="email" name="email" placeholder="Enter your email" required />
-                        <input type="text" name="username" placeholder="Choose username" required />
+                        <input type="text" name="username" placeholder="Choose a username" required />
                         <input type="password" name="password" placeholder="Create password" required />
+                        <input type="text" name="address" placeholder="Enter your address (optional)" />
+                        <input type="text" name="contact_number" placeholder="Enter your contact number (optional)" />
+                        <button type="submit" class="btn signup">Create Account</button>
+                        <p>Clicking <strong>create account</strong> means that you agree to our <a href="javascript:void(0)">terms of services</a>.</p>
+                        <hr />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="form-modal">
+                <div class="form-toggle">
+                    <button id="login-toggle" onclick="toggleLogin()">Log In</button>
+                    <button id="signup-toggle" onclick="toggleSignup()">Sign Up</button>
+                </div>
+
+                <div id="login-form">
+                    <!-- Login Form -->
+                    <form action="php/login.php" method="POST">
+                        <input type="text" name="username" placeholder="Enter email or username" required />
+                        <input type="password" name="password" placeholder="Enter password" required />
+                        <input type="hidden" name="redirect_to" value="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']); ?>" />
+                        <button type="submit">Login</button>
+                    </form>
+                </div>
+
+                <div id="signup-form" style="display: none;">
+                    <!-- Sign-Up Form -->
+                    <form action="php/registration.php" method="POST">
+                        <input type="text" name="first_name" placeholder="Enter your first name" required />
+                        <input type="text" name="last_name" placeholder="Enter your last name" required />
+                        <input type="email" name="email" placeholder="Enter your email" required />
+                        <input type="text" name="username" placeholder="Choose a username" required />
+                        <input type="password" name="password" placeholder="Create password" required />
+                        <input type="text" name="address" placeholder="Enter your address (optional)" />
+                        <input type="text" name="contact_number" placeholder="Enter your contact number (optional)" />
                         <button type="submit" class="btn signup">Create Account</button>
                         <p>Clicking <strong>create account</strong> means that you agree to our <a href="javascript:void(0)">terms of services</a>.</p>
                         <hr />
@@ -328,13 +385,20 @@ if ($product_id > 0) {
                 <h3>Confirm Order</h3>
                 <form id="orderFormDetails">
                     <label for="contact_number">Contact Number:</label>
-                    <input type="text" id="contact_number" name="contact_number" required>
-                    
+                    <input 
+                        type="text" 
+                        id="contact_number" 
+                        name="contact_number" 
+                        value="<?php echo htmlspecialchars($contact_number); ?>" 
+                        required
+                    >
                     <label for="address">Address:</label>
-                    <textarea id="address" name="address" required></textarea>
-
+                    <textarea 
+                        id="address" 
+                        name="address" 
+                        required
+                    ><?php echo htmlspecialchars($address); ?></textarea>
                     <input type="hidden" name="total_amount" value="<?php echo $totalSum; ?>">
-
                     <button type="submit" id="confirmOrderBtn">Confirm Order</button>
                 </form>
             </div>

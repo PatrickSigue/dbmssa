@@ -334,8 +334,8 @@ label {
         <ul class="login-nav">
             <ul class="login-nav">
                 <?php if (isset($_SESSION['username'])): ?>
-                    <li><a href="profile.php"><?php echo htmlspecialchars($_SESSION['username']); ?></a></li>
-                    <li><a href="php/logout.php">LOG OUT</a></li>
+                    <li><a href="myacc.php" style="text-transform: uppercase;"><?php echo "HI, " . htmlspecialchars($_SESSION['username']); ?></a></li>
+                    <li><a href = "php/logout.php" style = "text-decoration: underline;">LOG OUT</a></li>
                 <?php else: ?>
                     <li><a href="#" id="openLoginBtn"><img src="assets/loginicon.png" class="login-icon" alt="Login Icon">&nbsp;LOG IN</a></li>
                 <?php endif; ?>
@@ -403,36 +403,45 @@ label {
         </form>
     </div>
 </div>
-    <!-- Login Modal -->
+    <!-- Modal -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span class="close" onclick="closeModal()">&times;</span>
             <div class="form-modal">
                 <div class="form-toggle">
                     <button id="login-toggle" onclick="toggleLogin()">Log In</button>
                     <button id="signup-toggle" onclick="toggleSignup()">Sign Up</button>
                 </div>
-                <!-- Login Form -->
+
                 <div id="login-form">
+                    <!-- Login Form -->
                     <form action="php/login.php" method="POST">
-                        <input type="text" placeholder="Enter Username" id="username" name="username" required />
-                        <input type="password" placeholder="Enter password" id="password" name="password" required />
+                        <input type="text" name="username" placeholder="Enter email or username" required />
+                        <input type="password" name="password" placeholder="Enter password" required />
                         <input type="hidden" name="redirect_to" value="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']); ?>" />
-                        <button type="submit" class="btn login">Login</button>
+                        <button type="submit">Login</button>
                     </form>
                 </div>
-                <!-- Signup Form -->
+
                 <div id="signup-form" style="display: none;">
+                    <!-- Sign-Up Form -->
                     <form action="php/registration.php" method="POST">
+                        <input type="text" name="first_name" placeholder="Enter your first name" required />
+                        <input type="text" name="last_name" placeholder="Enter your last name" required />
                         <input type="email" name="email" placeholder="Enter your email" required />
-                        <input type="text" name="username" placeholder="Choose username" required />
+                        <input type="text" name="username" placeholder="Choose a username" required />
                         <input type="password" name="password" placeholder="Create password" required />
+                        <input type="text" name="address" placeholder="Enter your address (optional)" />
+                        <input type="text" name="contact_number" placeholder="Enter your contact number (optional)" />
                         <button type="submit" class="btn signup">Create Account</button>
+                        <p>Clicking <strong>create account</strong> means that you agree to our <a href="javascript:void(0)">terms of services</a>.</p>
+                        <hr />
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    
 <script>
 
     var modal = document.getElementById("bookingModal");

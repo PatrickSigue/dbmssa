@@ -16,10 +16,14 @@ session_start(); // Start the session
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Get form data
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
     $email = $_POST['email'];
     $username = $_POST['username'];
-    $password = $_POST['password'];
-    
+    $password = $_POST['password']; // Keep password as plain string (consider hashing for security)
+    $address = isset($_POST['address']) ? $_POST['address'] : null;
+    $contact_number = isset($_POST['contact_number']) ? $_POST['contact_number'] : null;
+
     // Check if email or username already exists
     $check_stmt = $conn->prepare("SELECT * FROM users WHERE email = ? OR username = ?");
     $check_stmt->bind_param("ss", $email, $username);
@@ -33,8 +37,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit();
     } else {
         // Insert new user
-        $stmt = $conn->prepare("INSERT INTO users (email, username, password) VALUES (?, ?, ?)");
-        $stmt->bind_param("sss", $email, $username, $password);
+        $stmt = $conn->prepare("INSERT INTO users (first_name, last_name, email, username, password, address, contact_number) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("sssssss", $first_name, $last_name, $email, $username, $password, $address, $contact_number);
         if ($stmt->execute()) {
             // Set success message
             $_SESSION['registration_success'] = "Registration successful! You can now log in.";

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2024 at 03:00 PM
+-- Generation Time: Dec 04, 2024 at 04:51 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -42,14 +42,7 @@ CREATE TABLE `bookings` (
 --
 
 INSERT INTO `bookings` (`id`, `user_id`, `S_ID`, `date`, `make_model`, `created_at`, `status`) VALUES
-(1, 10, 3, '2024-12-01', 'Example', '2024-12-02 06:44:26', 'Pending'),
-(2, 15, 1, '2024-12-05', 'Yamaha', '2024-12-03 10:08:05', 'Pending'),
-(3, 15, 1, '2024-12-05', 'Yamaha', '2024-12-03 10:09:24', 'Pending'),
-(4, 15, 3, '2024-12-13', 'qwer', '2024-12-03 10:09:32', 'Pending'),
-(5, 15, 3, '2024-12-13', 'qwer', '2024-12-03 10:09:37', 'Pending'),
-(6, 15, 1, '2024-12-27', 'weqreqwrt', '2024-12-03 10:14:23', 'Pending'),
-(7, 15, 1, '2024-12-27', 'weqreqwrt', '2024-12-03 10:15:26', 'Pending'),
-(8, 13, 1, '2024-12-28', 'Yamaha Mio', '2024-12-03 10:35:35', 'Pending');
+(10, 17, 1, '2024-12-08', 'Honda ADV 160', '2024-12-04 02:50:12', 'Pending');
 
 -- --------------------------------------------------------
 
@@ -65,23 +58,6 @@ CREATE TABLE `cart` (
   `quantity` int(11) DEFAULT NULL,
   `price` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `cart`
---
-
-INSERT INTO `cart` (`cid`, `user_id`, `product_id`, `size_id`, `quantity`, `price`) VALUES
-(39, 12, 4, 11, 2, 899.00),
-(40, 12, 2, 8, 3, 35.00),
-(54, 13, 3, 10, 1, 250.00),
-(55, 13, 1, 1, 1, 75.00),
-(56, 13, 1, 2, 1, 75.00),
-(57, 13, 1, 3, 1, 70.00),
-(58, 13, 1, 4, 1, 75.00),
-(59, 13, 2, 8, 1, 35.00),
-(60, 13, 2, 6, 1, 30.00),
-(61, 15, 3, 10, 1, 250.00),
-(62, 13, 4, 11, 1, 899.00);
 
 -- --------------------------------------------------------
 
@@ -132,12 +108,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `user_id`, `contact_number`, `address`, `total_amount`, `order_date`, `status`) VALUES
-(1, 13, '0956', 'Bahay ko', 4000.00, '2024-12-01 03:15:38', 'Pending'),
-(2, 12, '090909', 'mama mo', 19.00, '2024-12-01 03:17:55', 'Pending'),
-(3, 13, '090911', 'bahay mo', 4000.00, '2024-12-01 03:21:02', 'Pending'),
-(4, 12, '000878', 'tahana mu', 1903.00, '2024-12-01 03:29:29', 'Pending'),
-(5, 12, 'qwer', 'eqwr', 0.00, '2024-12-02 11:17:14', 'Complete'),
-(6, 12, '09786', 'feu', 8507.00, '2024-12-03 05:48:02', 'Complete');
+(7, 17, '(02) 8777 7338', 'Far  Eastern University - Manila', 2275.00, '2024-12-04 01:27:36', 'Complete'),
+(8, 17, '(02) 8777 7338', 'Far  Eastern University - Manila', 4849.00, '2024-12-04 03:13:55', 'Pending');
 
 -- --------------------------------------------------------
 
@@ -160,19 +132,13 @@ CREATE TABLE `order_items` (
 --
 
 INSERT INTO `order_items` (`order_item_id`, `order_id`, `product_id`, `size_id`, `quantity`, `price`, `total`) VALUES
-(1, 1, 7, 17, 1, 4000.00, 4000.00),
-(2, 1, 2, 6, 1, 30.00, 30.00),
-(3, 2, 5, 12, 1, 19.00, 19.00),
-(4, 3, 7, 16, 1, 4000.00, 4000.00),
-(5, 4, 4, 11, 2, 899.00, 1798.00),
-(6, 4, 2, 8, 3, 35.00, 105.00),
-(7, 6, 4, 11, 1, 899.00, 899.00),
-(8, 6, 3, 9, 4, 69.00, 276.00),
-(9, 6, 3, 10, 1, 250.00, 250.00),
-(10, 6, 6, 14, 1, 3500.00, 3500.00),
-(11, 6, 6, 15, 1, 3500.00, 3500.00),
-(12, 6, 5, 12, 3, 19.00, 57.00),
-(13, 6, 5, 13, 1, 25.00, 25.00);
+(14, 7, 5, 13, 1, 25.00, 25.00),
+(15, 7, 1, 4, 2, 75.00, 150.00),
+(16, 7, 13, 27, 2, 1050.00, 2100.00),
+(17, 8, 7, 16, 1, 4000.00, 4000.00),
+(18, 8, 1, 3, 4, 70.00, 280.00),
+(19, 8, 10, 21, 1, 500.00, 500.00),
+(20, 8, 3, 9, 1, 69.00, 69.00);
 
 -- --------------------------------------------------------
 
@@ -228,29 +194,29 @@ CREATE TABLE `product_sizes` (
 INSERT INTO `product_sizes` (`id`, `product_id`, `size`, `quantity`, `price`) VALUES
 (1, 1, 'Wave 125', 50, 75.00),
 (2, 1, 'Sniper 155', 50, 75.00),
-(3, 1, 'ADV Front/Rear', 100, 70.00),
-(4, 1, 'R150 Rear', 100, 75.00),
+(3, 1, 'ADV Front/Rear', 96, 70.00),
+(4, 1, 'R150 Rear', 98, 75.00),
 (5, 2, 'Wave 125', 50, 30.00),
 (6, 2, 'Sniper 155', 50, 30.00),
 (7, 2, 'ADV Front/Rear', 100, 35.00),
 (8, 2, 'R150 Rear', 100, 35.00),
-(9, 3, '150 ml', 10, 69.00),
+(9, 3, '150 ml', 9, 69.00),
 (10, 3, '900 ml', 10, 250.00),
 (11, 4, 'Universal', 5, 899.00),
 (12, 5, 'T10', 100, 19.00),
-(13, 5, 'T13', 100, 25.00),
+(13, 5, 'T13', 99, 25.00),
 (14, 6, 'Medium', 5, 3500.00),
 (15, 6, 'Large', 5, 3500.00),
-(16, 7, 'Medium', 5, 4000.00),
+(16, 7, 'Medium', 4, 4000.00),
 (17, 7, 'Large', 5, 4000.00),
 (20, 10, '800 ml', 5, 480.00),
-(21, 10, '1 L', 5, 500.00),
+(21, 10, '1 L', 4, 500.00),
 (22, 11, '800 ml', 5, 180.00),
 (23, 11, '1 L', 5, 190.00),
 (24, 8, ' 12N5L - BS', 5, 650.00),
 (25, 8, 'YTX4L - BS', 5, 350.00),
 (26, 13, '60/80 - 17', 10, 900.00),
-(27, 13, '70/80 - 17', 10, 1050.00),
+(27, 13, '70/80 - 17', 8, 1050.00),
 (28, 13, '80/80 - 17', 10, 1180.00),
 (29, 13, '90/80 - 17', 10, 1500.00),
 (30, 12, '45/90 - 17', 10, 575.00),
@@ -298,21 +264,21 @@ CREATE TABLE `users` (
   `UID` int(5) NOT NULL,
   `username` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL
+  `password` varchar(50) NOT NULL,
+  `first_name` varchar(100) NOT NULL,
+  `last_name` varchar(100) NOT NULL,
+  `address` text DEFAULT NULL,
+  `contact_number` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`UID`, `username`, `email`, `password`) VALUES
-(1, 'admin', 'admin@admin.com', 'admin'),
-(10, 'john', 'john@john.com', 'c'),
-(11, 'pat', 'pat@pat.com', '$2y$10$WKRn3mChraTcns9pMEjF.uJjauNou3LOd7n9pUBeBf6'),
-(12, 'zxc', 'zxc@zxc.com', 'zxc'),
-(13, 'jose', 'jose@jose.com', 'jose'),
-(14, 'patrick', 'weur@jose.com', 'patrick'),
-(15, 'test', 'test@y.com', 'test');
+INSERT INTO `users` (`UID`, `username`, `email`, `password`, `first_name`, `last_name`, `address`, `contact_number`) VALUES
+(1, 'admin', 'admin@admin.com', 'admin', 'admin', 'admin', NULL, NULL),
+(16, 'patrick', 'patricksigue@patrick.com', 'patrick', 'Patrick', 'Sigue', '', ''),
+(17, 'juan', 'juan@cruz.com', 'juan', 'Juan', 'Cruz', 'Far  Eastern University - Manila', '(02) 8777 7338');
 
 --
 -- Indexes for dumped tables
@@ -391,13 +357,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -409,13 +375,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `order_item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `order_item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -433,7 +399,7 @@ ALTER TABLE `product_sizes`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `UID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `UID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Constraints for dumped tables
