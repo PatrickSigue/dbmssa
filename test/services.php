@@ -443,205 +443,98 @@ label {
     </div>
     
 <script>
-
-    var modal = document.getElementById("bookingModal");
-    var btn = document.getElementById("bookNowBtn");
-    var closeBtn = document.getElementById("closeBookingModal"); // Target the specific close button
-    console.log(closeBtn);
-
-    // Show modal when clicking 'Book Now'
-    btn.onclick = function() {
-        modal.style.display = "block";
+    // Function to show the booking modal
+    function showBookingModal() {
+        document.getElementById("bookingModal").style.display = "block";
     }
 
-    // Close modal when clicking 'X' (close button)
-    if (closeBtn) {
-    closeBtn.onclick = function() {
-        console.log("Close button clicked");
-        modal.style.display = "none";  // Close the modal
+    // Function to close the booking modal
+    function closeBookingModal() {
+        document.getElementById("bookingModal").style.display = "none";
+    }
+
+    // Function to close the login modal
+    function closeLoginModal() {
+        document.getElementById("loginModal").style.display = "none";
+    }
+
+    // Function to toggle between login and signup forms
+    function toggleSignup() {
+        document.getElementById("login-toggle").style.backgroundColor = "#fff";
+        document.getElementById("login-toggle").style.color = "#222";
+        document.getElementById("signup-toggle").style.backgroundColor = "#57b846";
+        document.getElementById("signup-toggle").style.color = "#fff";
+        document.getElementById("login-form").style.display = "none";
+        document.getElementById("signup-form").style.display = "block";
+    }
+
+    function toggleLogin() {
+        document.getElementById("login-toggle").style.backgroundColor = "#57B846";
+        document.getElementById("login-toggle").style.color = "#fff";
+        document.getElementById("signup-toggle").style.backgroundColor = "#fff";
+        document.getElementById("signup-toggle").style.color = "#222";
+        document.getElementById("signup-form").style.display = "none";
+        document.getElementById("login-form").style.display = "block";
+    }
+
+    // Close modal when clicking outside of it
+    window.onclick = function(event) {
+        var bookingModal = document.getElementById("bookingModal");
+        var loginModal = document.getElementById("loginModal");
+        if (event.target == bookingModal) {
+            closeBookingModal();
+        } else if (event.target == loginModal) {
+            closeLoginModal();
+        }
     };
-}
 
-// Close modal when clicking outside of the modal
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";  // Close the modal if clicked outside
-    }
-};
-
-    function toggleDescription(element) {
-        const description = element.querySelector('.description');
-        const computedStyle = window.getComputedStyle(description);
-        
-        if (computedStyle.display === "none") {
-            description.style.display = "block";
-        } else {
-            description.style.display = "none";
-        }
-    }
-
+    // Document ready function
     $(document).ready(function() {
-                // Check if 'cartBtn' element exists before adding the click handler
-                var cartBtn = document.getElementById('cartBtn');
-                if (cartBtn) {
-                    cartBtn.onclick = function(event) {
-                        event.preventDefault(); // Prevent the default behavior (navigation)
-                        var modal = document.getElementById('cartModal');
-                        if (modal) {
-                            modal.style.display = 'block'; // Show the cart modal
-                        }
-                    };
-                }
+        // Show booking modal when 'Book Now' button is clicked
+        $('#bookNowBtn').on('click', showBookingModal);
 
-                // Check if 'openLoginBtn' element exists before adding the click handler
-                var openLoginBtn = document.getElementById('openLoginBtn');
-                if (openLoginBtn) {
-                    openLoginBtn.onclick = function() {
-                        var loginModal = document.getElementById('loginModal');
-                        if (loginModal) {
-                            loginModal.style.display = 'block'; // Show the login modal
-                        }
-                    };
-                }
+        // Close booking modal when 'X' is clicked
+        $('#closeBookingModal').on('click', closeBookingModal);
 
-                // Check if 'cartModal' and 'closeBtn' elements exist before setting click events
-                var modal = document.getElementById('cartModal');
-                var closeBtn = document.getElementById('closeBtn');
-                if (modal && closeBtn) {
-                    closeBtn.onclick = function() {
-                        modal.style.display = 'none'; // Close the modal
-                    };
+        // Show login modal
+        $('#openLoginBtn').on('click', function() {
+            $('#loginModal').show(); // Show the login modal
+        });
 
-                    // Close modal when clicking outside of it
-                    window.onclick = function(event) {
-                        if (event.target == modal) {
-                            modal.style.display = 'none'; // Close the modal if clicked outside
-                        }
-                    };
-                }
+        // Close login modal
+        $('.close').on('click', closeLoginModal);
 
-                // Check if 'loginModal' and 'close' button for login modal exist before attaching events
-                var loginModal = document.getElementById('loginModal');
-                var closeLoginModalBtn = document.querySelector('.close');
-                if (loginModal && closeLoginModalBtn) {
-                    closeLoginModalBtn.onclick = function() {
-                        loginModal.style.display = 'none'; // Close the login modal
-                    };
-
-                    // Close login modal when clicking outside of it
-                    window.onclick = function(event) {
-                        if (event.target == loginModal) {
-                            loginModal.style.display = 'none'; // Close the login modal if clicked outside
-                        }
-                    };
-                }
-
-                // Handle AJAX for remove item from cart
-                $(document).on('click', '.remove-item', function() {
-                    var cid = $(this).data('cid');  // Get the cart item ID
-                    
-                    // Ask for confirmation before removing
-                    if (confirm('Are you sure you want to remove this item from your cart?')) {
-                        // Send AJAX request to remove the item from the cart
-                        $.ajax({
-                            url: 'php/remove_from_cart.php',  // PHP script to handle removal
-                            type: 'POST',
-                            data: { cid: cid },
-                            success: function(response) {
-                                alert(response);  // Show success or error message
-                                location.reload();  // Reload the page to update the cart
-                            },
-                            error: function(xhr, status, error) {
-                                alert("An error occurred. Please try again.");
-                            }
-                        });
-                    }
-                });
-
-                // Handle order form submission via AJAX
-                $('#orderFormDetails').submit(function(event) {
-                    event.preventDefault();  // Prevent form from submitting normally
-
-                    var formData = $(this).serialize();  // Get form data
-
-                    $.ajax({
-                        url: 'php/confirm_order.php',  // PHP script to process the order
-                        type: 'POST',
-                        data: formData,
-                        success: function(response) {
-                            alert(response);  // Show success or error message
-                            location.reload();  // Reload the page to reflect the new order
-                        },
-                        error: function(xhr, status, error) {
-                            alert("An error occurred. Please try again.");
-                        }   
-                    });
-                });
-
-                // Close the modal when clicking anywhere outside the modal (for both cart and login modals)
-                window.onclick = function(event) {
-                    var cartModal = document.getElementById("cartModal");
-                    if (event.target == cartModal) {
-                        cartModal.style.display = "none"; // Close the cart modal if clicked outside
-                    }
-
-                    var loginModal = document.getElementById("loginModal");
-                    if (event.target == loginModal) {
-                        loginModal.style.display = "none"; // Close the login modal if clicked outside
-                    }
-                };
-
-                // Ensure login-modal behavior works
-                var openLoginBtn = document.getElementById("openLoginBtn");
-                if (openLoginBtn) {
-                    openLoginBtn.addEventListener("click", function() {
-                        document.getElementById("loginModal").style.display = "block";  // Show the login modal
-                    });
-                }
-
-                // Function to close the modal
-                function closeModal() {
-                    document.getElementById("loginModal").style.display = "none";  // Hide the login modal
-                }
-
-                // Display any session-based alerts
-                <?php if (isset($_SESSION['error_message'])): ?>
-                    alert("<?php echo $_SESSION['error_message']; ?>");
-                    <?php unset($_SESSION['error_message']); // Clear the error message after displaying ?>
-                <?php endif; ?>
-                
-                <?php if (isset($_SESSION['registration_success'])): ?>
-                    alert("<?php echo $_SESSION['registration_success']; ?>");
-                    <?php unset($_SESSION['registration_success']); // Clear the success message after displaying ?>
-                <?php endif; ?>
-            });
-
-            // Handling toggle between login and signup forms
-                function toggleSignup() {
-                    document.getElementById("login-toggle").style.backgroundColor = "#fff";
-                    document.getElementById("login-toggle").style.color = "#222";
-                    document.getElementById("signup-toggle").style.backgroundColor = "#57b846";
-                    document.getElementById("signup-toggle").style.color = "#fff";
-                    document.getElementById("login-form").style.display = "none";
-                    document.getElementById("signup-form").style.display = "block";
-                }
-
-                function toggleLogin() {
-                    document.getElementById("login-toggle").style.backgroundColor = "#57B846";
-                    document.getElementById("login-toggle").style.color = "#fff";
-                    document.getElementById("signup-toggle").style.backgroundColor = "#fff";
-                    document.getElementById("signup-toggle").style.color = "#222";
-                    document.getElementById("signup-form").style.display = "none";
-                    document.getElementById("login-form").style.display = "block";
-                }
+        // Validate booking form date
         $('#bookingForm').on('submit', function(e) {
-        const date = $('#dateInput').val();
-        if (!date || new Date(date) < new Date()) {
-            e.preventDefault();
-            alert("Please select a valid future date.");
-        }
-    });
+            const date = $('#dateInput').val();
+            if (!date || new Date(date) < new Date()) {
+                e.preventDefault();
+                alert("Please select a valid future date.");
+            }
+        });
 
+        // Display session-based alerts
+        <?php if (isset($_SESSION['error_message'])): ?>
+            alert("<?php echo $_SESSION['error_message']; ?>");
+            <?php unset($_SESSION['error_message']); // Clear the error message after displaying ?>
+        <?php endif; ?>
+        
+        <?php if (isset($_SESSION['registration_success'])): ?>
+            alert("<?php echo $_SESSION['registration_success']; ?>");
+            <?php unset($_SESSION['registration_success']); // Clear the success message after displaying ?>
+        <?php endif; ?>
+    });
+function toggleDescription(element) {
+    const description = element.querySelector('.description');
+    const computedStyle = window.getComputedStyle(description);
+    
+    // Toggle the display property based on the computed style
+    if (computedStyle.display === "none") {
+        description.style.display = "block"; // Show the description
+    } else {
+        description.style.display = "none"; // Hide the description
+    }
+}
 </script>
 
 <footer>
