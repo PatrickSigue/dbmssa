@@ -68,10 +68,10 @@ $completedAppointments = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <h1 style="color: white;">Sir Chief's Shop</h1>
         </div>
     <ul>
-        <li><img src="" alt="">&nbsp; <span><a href="dashboard_admin.php#"> Dashboard </a></span> </li>
-        <li><img src="" alt="">&nbsp; <span><a href="admin_inventory.php#">Inventory</a></span> </li>
-        <li><img src="" alt="">&nbsp; <span><a href="admin_bookings.php#">Appointments</a></span> </li>
-        <li><img src="" alt="">&nbsp; <span><a href="admin_orders.php#">Orders</a></span> </li> 
+        <li><span><a href="dashboard_admin.php#"> Dashboard </a></span> </li>
+        <li><span><a href="admin_inventory.php#">Inventory</a></span> </li>
+        <li><span><a href="admin_bookings.php#">Appointments</a></span> </li>
+        <li><span><a href="admin_orders.php#">Orders</a></span> </li> 
     </ul>
     </div>
 
@@ -81,7 +81,7 @@ $completedAppointments = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <h1>Appointments</h1>
                 <div class="user">
                     <?php if (isset($_SESSION['username'])): ?>
-                    <li><a href="profile.php"><?php echo htmlspecialchars($_SESSION['username']); ?></a></li>
+                    <li><h3>Hello, Admin!</h3></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <li><a href="/test/php/logout_admin.php" id="nav">LOG OUT</a></li>
             <?php endif; ?>
                 </div>
