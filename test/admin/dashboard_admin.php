@@ -55,7 +55,7 @@ $bookings = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <body>
     <div class="side-menu">
         <div class="brand-name">
-            <h1 style="color: white;">Sir Chiefs Shop</h1>
+            <h1 style="color: white;">Sir Chief's Shop</h1>
         </div>
         <ul>
             <li><span><a href="dashboard_admin.php#"> Dashboard </a></span></li>
@@ -69,11 +69,9 @@ $bookings = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="nav">
                 <div class="user">
                     <?php if (isset($_SESSION['username'])): ?>
-                    <li><a href="profile.php"><?php echo htmlspecialchars($_SESSION['username']); ?></a></li>
+                    <li><h3>Hello, Admin!</h3></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <li><a href="/test/php/logout_admin.php" id="nav">LOG OUT</a></li>
-                <?php else: ?>
-                    <li><a href="php/login.php" id="openModalBtn" id="nav"><img src="assets/loginicon.png" class="login-icon" alt="Login Icon">&nbsp;LOG IN</a></li>
-            <?php endif; ?>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
