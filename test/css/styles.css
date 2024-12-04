@@ -75,6 +75,9 @@ th, td{
 	display: flex;      
 	align-items: center;
 }
+.side-menu li a{
+	color: white;
+}
 .side-menu li a:visited{
 	color: white;
 }
@@ -111,28 +114,13 @@ th, td{
 	display: flex;
 	align-items: center;
 }
-.container .header .nav .user{
-	flex: 1;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin-left: 80%;
-}
-.container .header .nav .user img{
-	width: 40px;
-	height: 40px;
-}
-.container .header .nav .img-case{
-	position: relative;
-	width: 50px;
-	height: 50px;
-}
-.container .header .nav .img-case img{
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
+.container .header .nav .user {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end; /* Align items to the right */
+    align-items: center; /* Center items vertically */
+    margin-left: auto; /* Push the user section to the right */
 }
 .container .content{
 	position: relative;
@@ -160,7 +148,7 @@ th, td{
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .container .content .content-2{
-	min-height: 60vh;
+	min-height: 40vh;
 	display: ;
 	justify-content: space-around;
 	align-items: flex-start;
@@ -178,48 +166,7 @@ th, td{
 	flex-direction: column;
 	max-height: 80%;
 }
-.container .content .content-2:nth-of-type(1) .recent-orders {
-    margin-bottom: -100; /* Remove bottom margin for the first instance */
-}
 
-.container .content .content-2:nth-of-type(2) {
-    margin-top: -100; /* Remove top margin for the second instance */
-}
-@media screen and (max-width: 1050px){
-	.side-menu li{
-		font-size: 18px;
-	}
-}
-@media screen and (max-width: 940px){
-	.side-menu li span{
-		display: none;
-	}
-	.side-menu{
-		align-items: center;
-	}
-	.side-menu li img{
-		width: 40px;
-		height: 40px;
-	}
-	.side-menu li:hover{
-		background: #014235;
-		padding: 8px 38px;
-		border: 2px solid white;
-	}
-}
-@media screen and (max-width: 536px){
-	.brand-name h1{
-		font-size: 16px;
-	}
-	.container .content .cards{
-		justify-content: center;
-		
-	}
-	.side-menu li img{
-		width: 30px;
-		height: 30px;
-	}
-}
 .container footer {
             background: #333;
             color: #fff;
@@ -227,7 +174,6 @@ th, td{
             padding: 15px 0;
             margin-top: 0px;
             height: 60px;
-
 }
 .modal {
   display: none; /* Hidden by default */
@@ -258,7 +204,6 @@ th, td{
   animation-name: animatetop;
   animation-duration: 0.4s;
 }
-
 /* The Close Button */
 .close {
   color: #aaa;
