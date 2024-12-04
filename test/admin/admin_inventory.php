@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add'])) {
     // Check if the file was uploaded without errors
     if (isset($image) && $image['error'] == 0) {
         // Define the target directory for uploads
-        $targetDir = "uploads/"; // Make sure this directory exists and is writable
+        $targetDir = "../assets/shop/"; // Make sure this directory exists and is writable
         $targetFile = $targetDir . basename($image['name']);
         
         // Check file type and size (optional)
@@ -138,10 +138,10 @@ $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <h1 style="color: white;">Sir Chief's Shop</h1>
         </div>
     <ul>
-        <li><img src="" alt="">&nbsp; <span><a href="dashboard_admin.php#"> Dashboard </a></span> </li>
-        <li><img src="" alt="">&nbsp; <span><a href="admin_inventory.php#">Inventory</a></span> </li>
-        <li><img src="" alt="">&nbsp; <span><a href="admin_bookings.php#">Appointments</a></span> </li>
-        <li><img src="" alt="">&nbsp; <span><a href="admin_orders.php#">Orders</a></span> </li> 
+        <li><span><a href="dashboard_admin.php#"> Dashboard </a></span> </li>
+        <li><span><a href="admin_inventory.php#">Inventory</a></span> </li>
+        <li><span><a href="admin_bookings.php#">Appointments</a></span> </li>
+        <li><span><a href="admin_orders.php#">Orders</a></span> </li> 
     </ul>
     </div>
     <div class="container">
@@ -150,7 +150,7 @@ $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <h1>Inventory</h1>
                 <div class="user">
                     <?php if (isset($_SESSION['username'])): ?>
-                    <li><a href="profile.php"><?php echo htmlspecialchars($_SESSION['username']); ?></a></li>
+                    <li><h3>Hello, Admin!</h3></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <li><a href="/test/php/logout_admin.php" id="nav">LOG OUT</a></li>
             <?php endif; ?>
                 </div>
@@ -201,7 +201,7 @@ $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <td><?php echo $product['PID']; ?></td>
             <td><?php echo htmlspecialchars($product['name']); ?></td>
             <td><?php echo htmlspecialchars($product['description']); ?></td>
-            <td><img src="/test/<?php echo htmlspecialchars($product['image']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" style="width: 50px; height: auto;"></td>
+            <td><img src="<?php echo htmlspecialchars($product['image']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" style="width: 50px; height: auto;"></td>
             <td><?php echo htmlspecialchars($product['category_name']); ?></td>
             <td>
                 <form method="POST" action="" style="display:inline;">
@@ -252,6 +252,8 @@ $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </td>
         </tr>
     <?php endforeach; ?>
+    </table>
+
     <div class="form-container">
         <form method="POST" action="">
             <label for="product_id">Select Product:</label>
@@ -271,16 +273,16 @@ $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <input type="number" name="quantity" required>
         
             <label for="price">Price:</label>
-            <input type="number" name="price" step="0.01" required>
+            <input type="number" name="price" step="1" required>
         
             <input type="submit" name="add_size" value="Add Size">
         </form>
-    </table>
     </div>
     </div> 
-
-<footer>
+    <footer>
         <p>&copy; 2024 Sir Chief's Motorshop</p>
     </footer>
+
+
 </body>
 </html>
