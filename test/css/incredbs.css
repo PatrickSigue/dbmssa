@@ -1,86 +1,62 @@
+/* General Styles */
+html, body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+    color: white;
+    height: 100%;
+}
 
-        body {
-            font-family: verdana, sans-serif;
-            font-stretch: extra-expanded;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
-        }
+body {
+    background: rgba(0, 0, 0, .5);
+    display: flex;
+    flex-direction: column; /* Make sure the body stacks elements vertically */
+}
 
-        header {
-            background: #FFFFFF;
-            color: #333;
-            text-align: center;
-        }
+/* Header */
+header {
+    background: #fff;
+    color: #333;
+    text-align: center;
+    padding: 0px;
+}
 
-        nav ul {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
+nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
 
-        nav li {
-            margin-left: 35px;
-            margin-right: 35px;
-            margin-bottom: 5px;
-            margin-top: 5px;
-            align-items: center;
-        }
+nav li {
+    margin-left: 35px;
+    margin-right: 35px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    align-items: center;
+}
 
-        nav img.logo {
-            width: 220px;
-            height: auto;
-        }
+nav img.logo {
+    width: 220px;
+    height: auto;
+}
 
-        nav a {
-            text-decoration: none;
-            color: black;
-            font-size: 20px;
-        }
+nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
 
-        nav a:hover {
-            color: indianred;
-        }
+nav a:hover {
+    color: indianred;
+}
 
-        ul.login-nav {
-            display: flex;
-            align-items: center; /* Align items vertically */
-            gap: 5px;
-            margin: 0; /* Remove any extra margins */
-            padding: 0;
-        }
-
-        nav .login-icon {
-            width: 30px;
-            height: 30px; /* Keep it square for uniformity */
-            vertical-align: middle;
-        }
-
-        .login-nav li {
-             gap: 0px; 
-             margin: 7px;
-        }
-
-
-        .login-nav a {
-            display: flex;
-            align-items: center;
-            gap: 8px; /* Space between icon and text */
-            text-decoration: none;
-            color: black;
-            font-size: 18px;
-        }
-
-        .login-nav a:hover {
-            color: indianred;
-        }
-
-         
+nav .login-icon {
+    width: 30px;
+    height: auto;
+   }
 
 .flex-container {
     display: flex; /* Enable flexbox */
@@ -198,6 +174,54 @@ footer {
     position: sticky;
 }
 
+        body {
+            font-family: Verdana, sans-serif;
+            font-stretch: extra-expanded;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            color: #333;
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            margin-left: 35px;
+            margin-right: 35px;
+            margin-bottom: 5px;
+            margin-top: 5px;
+            align-items: center;
+        }
+
+        nav img.logo {
+            width: 220px;
+            height: auto;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: black;
+            font-size: 20px;
+        }
+
+        nav a:hover {
+            color: indianred;
+        }
 
         .container {
             width: 80%;
@@ -246,7 +270,13 @@ footer {
             background-color: #006b35;
         }
 
-
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 20px;
+        }
 
         @media (max-width: 768px) {
             nav ul {
