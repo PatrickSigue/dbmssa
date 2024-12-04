@@ -57,6 +57,50 @@ if ($result->num_rows > 0) {
     $bookings = [];
 }
 
+$successMessage = "";
+
+// Handle contact update
+if (isset($_POST['update_contact'])) {
+    $new_contact = $_POST['contact'];
+    $username = $_SESSION['username'];
+
+    $sql = "UPDATE users SET contact_number = ? WHERE username = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ss", $new_contact, $username);
+
+    if ($stmt->execute()) {
+        $successMessage = "Contact number updated successfully!";
+    } else {
+        $successMessage = "Error updating contact number.";
+    }
+
+    $stmt->close();
+    // Redirect to prevent form re-submission
+    header("Location: myacc.php?message=" . urlencode($successMessage));
+    exit();
+}
+
+// Handle address update
+if (isset($_POST['update_address'])) {
+    $new_address = $_POST['address'];
+    $username = $_SESSION['username'];
+
+    $sql = "UPDATE users SET address = ? WHERE username = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ss", $new_address, $username);
+
+    if ($stmt->execute()) {
+        $successMessage = "Address updated successfully!";
+    } else {
+        $successMessage = "Error updating address.";
+    }
+
+    $stmt->close();
+    // Redirect to prevent form re-submission
+    header("Location: myacc.php?message=" . urlencode($successMessage));
+    exit();
+}
+
 
 ?>
 
@@ -115,8 +159,26 @@ if ($result->num_rows > 0) {
                     <div class="section-title">Account Info</div>
                     <p><strong>Username:</strong> <?php echo htmlspecialchars($username); ?></p>
                     <p><strong>Email:</strong> <?php echo htmlspecialchars($email); ?></p>
-                    <p><strong>Contact Number:</strong> <?php echo htmlspecialchars($contact); ?></p>
-                    <p><strong>Address:</strong> <?php echo htmlspecialchars($address); ?></p>
+                    <p><strong>Contact Number:</strong> 
+                        <?php if (empty($contact)): ?>
+                            <form method="post" action="myacc.php" style="display: inline;">
+                                <input type="text" name="contact" placeholder="Enter your contact number" required>
+                                <button type="submit" name="update_contact">Update</button>
+                            </form>
+                        <?php else: ?>
+                            <?php echo htmlspecialchars($contact); ?>
+                        <?php endif; ?>
+                    </p>
+                    <p><strong>Address:</strong> 
+                        <?php if (empty($address)): ?>
+                            <form method="post" action="myacc.php" style="display: inline;">
+                                <input type="text" name="address" placeholder="Enter your address" required>
+                                <button type="submit" name="update_address">Update</button>
+                            </form>
+                        <?php else: ?>
+                            <?php echo htmlspecialchars($address); ?>
+                        <?php endif; ?>
+                    </p>
                 </div>
             </div>
 
