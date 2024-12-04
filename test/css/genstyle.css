@@ -2,62 +2,101 @@
 html, body {
     padding: 0;
     margin: 0;
-    font-family: 'Raleway', sans-serif;
+    font-family: verdana, sans-serif;
     color: white;
     height: 100%;
 }
 
 body {
-    background: rgba(0, 0, 0, .5);
+    background: #f4f4f9;
     display: flex;
     flex-direction: column; /* Make sure the body stacks elements vertically */
 }
+body {
+            font-family: verdana, sans-serif;
+            font-stretch: extra-expanded;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
 
-/* Header */
-header {
-    background: #fff;
-    color: #333;
-    text-align: center;
-    padding: 15px 0;
-}
+        header {
+            background: #FFFFFF;
+            color: #333;
+            text-align: center;
+        }
 
-nav ul {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
+        nav ul {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
 
-nav li {
-    margin-left: 35px;
-    margin-right: 35px;
-    margin-bottom: 5px;
-    margin-top: 5px;
-    align-items: center;
-}
+        nav li {
+            margin-left: 35px;
+            margin-right: 35px;
+            margin-bottom: 5px;
+            margin-top: 5px;
+            align-items: center;
+            
 
-nav img.logo {
-    width: 220px;
-    height: auto;
-}
+        }
 
-nav a {
-    text-decoration: none;
-    color: black;
-    font-size: 20px;
-}
+        nav img.logo {
+            width: 220px;
+            height: auto;
+        }
 
-nav a:hover {
-    color: indianred;
-}
+        nav a {
+            text-decoration: none;
+            color: black;
+            font-size: 20px;
 
-nav .login-icon {
-    width: 30px;
-    height: auto;
-    margin-right: 10px;
-}
+
+        }
+
+        nav a:hover {
+            color: indianred;
+        }
+
+        ul.login-nav {
+            display: flex;
+            align-items: center; /* Align items vertically */
+            gap: 5px;
+            margin-right: 15px; /* Remove any extra margins */
+        }
+
+        nav .login-icon {
+            width: 30px;
+            height: 30px; /* Keep it square for uniformity */
+            vertical-align: middle;
+        }
+
+        .login-nav li {
+             gap: 0px; 
+             margin: 7px;
+        }
+
+
+        .login-nav a {
+            display: flex;
+            align-items: center;
+            gap: 8px; /* Space between icon and text */
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+        }
+
+        .login-nav a:hover {
+            color: indianred;
+        }
+
+         
 footer {
     background: #333;
     color: #fff;
